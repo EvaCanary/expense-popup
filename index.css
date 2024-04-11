@@ -1,0 +1,156 @@
+html {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-variation-settings: "slnt" 0;
+  background-color: #17181d;
+}
+.body_fixed {
+  overflow: fixed;
+  overflow: hidden;
+}
+.popup {
+  position: fixed;
+  display: none;
+  z-index: 100;
+  top: 220px;
+  left: 192px;
+  max-width: 990px;
+  max-height: 550px;
+  background-color: rgba(0, 0, 0, 0.5);
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+.popup__content {
+  position: relative;
+  padding: 15px 15px 50px 15px;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+}
+.popup_open {
+  display: flex;
+  visibility: visible;
+  background-color: #fff;
+}
+.popup__closeBtn {
+  position: absolute;
+  right: 10px;
+  width: 34px;
+  height: 34px;
+  border: none;
+  background: url(./ic_burger-close.svg) no-repeat;
+}
+.popup__title {
+  padding-bottom: 50px;
+}
+.popup__limit-input {
+  margin-right: 20px;
+  width: 200px;
+  height: 23px;
+  border-radius: 10px;
+  border: solid #17181d 1px;
+}
+.popup__limitBtn {
+  color: #fff;
+  width: 150px;
+  height: 30px;
+  background-color: #ff9913;
+  border: none;
+  border-radius: 10px;
+}
+.header__inner {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+h1 {
+  margin-left: 30px;
+  font-size: 32px;
+  line-height: 39px;
+  font-weight: 700;
+  color: #ffffff;
+}
+ol {
+  list-style: decimal;
+  list-style-position: inside;
+}
+.label {
+  font-weight: 700;
+  color: #ffffff;
+}
+.limitValue {
+  color: #ffffff;
+}
+.totalValue {
+  color: #ffffff;
+}
+.status__statusText {
+  color: #ffffff;
+}
+.history__label {
+  color: #ffffff;
+}
+ol {
+  padding: 0;
+  color: #ffffff;
+}
+.expenses {
+  margin-left: 30px;
+  width: 700px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 50px;
+}
+.moneyInput__input {
+  margin-bottom: 30px;
+  display: block;
+  box-sizing: border-box;
+  border-radius: 20px;
+  border-width: 0px;
+  width: 300px;
+  height: 58px;
+}
+.expensesCategory {
+  width: 100%;
+}
+.addButton {
+  margin-bottom: 30px;
+  height: 58px;
+  width: 370px;
+  font-size: 20px;
+  border-radius: 20px;
+  border-width: 0px;
+  align-items: center;
+  color: #ffffff;
+  border: 1px solid #ff9913;
+  background-color: #ff9913;
+}
+.clearButton {
+  margin-bottom: 30px;
+  height: 58px;
+  width: 200px;
+  font-size: 20px;
+  border-radius: 20px;
+  border-width: 0px;
+  align-items: center;
+  color: #ffffff;
+  border: 1px solid #ff9913;
+  background-color: #ff9913;
+}
+button:hover {
+  opacity: 0.5;
+}
+.moneyInput {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  border: none;
+}
+.moneyInput__input {
+  width: 100%;
+  border: none;
+  font-size: inherit;
+}
