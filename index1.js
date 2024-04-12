@@ -78,7 +78,6 @@ const addButtonHandler = () => {
   if (sum < limit) {
     statusNode.innerText = STATUS_IN_LIMIT;
   }
-  expenses.push(expense);
   const selectedCategory = getCategory();
   if (selectedCategory === "Категория") {
     return;
@@ -95,7 +94,7 @@ const renderHistory = (expenses) => {
   historyList.innerHTML = "";
   expenses.forEach((expense) => {
     const history = document.createElement("li");
-    history.innerText = `${expense} - ${selectedCategory}`;
+    history.innerText = `${expense.amount} - ${expense.category}`;
     historyList.appendChild(history);
   });
 };
