@@ -6,13 +6,14 @@ const STATUS_OUT_OF_LIMIT = "всё плохо";
 const inputNode = document.getElementById("expenseInput");
 const inputLimitNode = document.getElementById("expenseLimitInput");
 const addButtonNode = document.getElementById("addButton");
-const categorySelect = document.getElementById("selectedCategory");
 const limitButtonNode = document.getElementById("limitButton");
 const clearButtonNode = document.getElementById("clearButton");
 const limitNode = document.getElementById("limitValue");
 const totalValueNode = document.getElementById("totalValue");
 const statusNode = document.getElementById("statusText");
 const historyList = document.getElementById("historyList");
+
+const selectedCategory = document.querySelector(".selectedCategory");
 
 let sum = 0;
 let expenses = [];
@@ -87,6 +88,7 @@ const addButtonHandler = () => {
   console.log(newExpense);
   renderTotal();
   renderHistory(expenses);
+  getCategory();
 };
 
 const renderHistory = (expenses) => {
