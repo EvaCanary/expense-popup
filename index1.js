@@ -6,6 +6,7 @@ const STATUS_OUT_OF_LIMIT = "всё плохо";
 const inputNode = document.getElementById("expenseInput");
 const inputLimitNode = document.getElementById("expenseLimitInput");
 const addButtonNode = document.getElementById("addButton");
+const categorySelect = document.getElementById("selectedCategory");
 const limitButtonNode = document.getElementById("limitButton");
 const clearButtonNode = document.getElementById("clearButton");
 const limitNode = document.getElementById("limitValue");
@@ -26,13 +27,21 @@ init();
 
 let limit;
 
-const getLimit = () => {
+const getExpense = () => {
+  if (!inputNode.value) {
+    return;
+  }
+  expense = parseInt(inputNode.value);
+  inputNode.value = "";
+  return expense;
+};
+
+const setLimit = () => {
   if (!inputLimitNode.value) {
     return;
   }
   limit = parseInt(inputLimitNode.value);
   inputLimitNode.value = "";
-  console.log("Expense:", limit);
   return limit;
 };
 
@@ -40,7 +49,7 @@ const renderLimit = () => {
   limitNode.innerText = limit;
 };
 const buttonHandler = () => {
-  getLimit();
+  setLimit();
   renderLimit();
 };
 
@@ -51,10 +60,16 @@ const getTotal = () => {
   return sum;
 };
 
+const getCategory = () => {
+  getCategory.addEventListener("change", (event) => {
+    getCategory = event.target.value;
+    console.log("Выбрана категория:", selectedCategory);
+  });
+};
+
 const addButtonHandler = () => {
-  const expense = getLimit();
+  const expense = getExpense();
   console.log("Expense added:", expense);
-  expenses.push(expense);
   if (sum > limit) {
     console.log(sum, limit);
     statusNode.innerText = STATUS_OUT_OF_LIMIT;
@@ -62,6 +77,14 @@ const addButtonHandler = () => {
   if (sum < limit) {
     statusNode.innerText = STATUS_IN_LIMIT;
   }
+  expenses.push(expense);
+  const selectedCategory = getCategory();
+  if (selectedCategory === "Категория") {
+    return;
+  }
+  const newExpense = { amount: expense, category: selectedCategory };
+  expenses.push(newExpense);
+  console.log(newExpense);
   renderTotal();
   renderHistory(expenses);
 };
@@ -70,7 +93,7 @@ const renderHistory = (expenses) => {
   historyList.innerHTML = "";
   expenses.forEach((expense) => {
     const history = document.createElement("li");
-    history.innerText = expense;
+    history.innerText = `${expense} - ${selectedCategory}`;
     historyList.appendChild(history);
   });
 };
